@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initital-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=egde">
+    <title>Google maps API Vlugtenburg</title>
+
+
+    <style>
+        #map {
+            height: 800px;
+            width: 100%;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="map"></div>
+
+    <script>
+        //map
+        function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: 52.001700, lng: 4.133556 },
+                zoom: 17,
+                mapId: '6435c1b9336f59c2'
+            });
+
+            //markers customized
+            const marker = new google.maps.Marker({
+                position: { lat: 52.001558, lng: 4.135921 },
+                map,
+                title: "Eetcafé Zout",
+                icon: {
+                    url: "assets/Logo/zeezoucafe.png",
+                    scaledSize: new google.maps.Size(40, 40)
+                },
+                animation: google.maps.Animation.DROP
+            });
+
+
+            new google.maps.Marker({
+                position: { lat: 52.001802, lng: 4.137504 },
+                map,
+                title: "Strandpark Vlugtenburg",
+                icon: {
+                    url: "assets/Logo/vlugtenburg1.jpg",
+                    scaledSize: new google.maps.Size(40, 40)
+                },
+                animation: google.maps.Animation.DROP
+            });
+
+            new google.maps.Marker({
+                position: { lat: 52.003747, lng: 4.129263 },
+                map,
+                title: "Pipowagens aan het strand",
+                icon: {
+                    url: "assets/Logo/vlugtenburg1.jpg",
+                    scaledSize: new google.maps.Size(40, 40)
+                },
+                animation: google.maps.Animation.DROP
+            });
+
+            // infotext
+            //eetcafe zout
+            const infowindow = new google.maps.InfoWindow({
+                content: "Eetcafé Zout",
+            });
+
+            marker.addListener("click", () => {
+                window.open('https://eetcafezout.nl/', '_blank');
+            });
+
+
+
+
+        }
+    </script>
+
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBvnvUK2DneuiXVQERXKT0L5z-8ih7GwNw&map_ids=6435c1b9336f59c2&callback=initMap">
+        </script>
+
+</body>
+
+</html>
